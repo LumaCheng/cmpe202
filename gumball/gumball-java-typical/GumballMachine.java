@@ -35,12 +35,12 @@ public class GumballMachine
 
     public void turnCrank()
     {
-    	if ( this.total_coin ==  this.price_per_gumball )
+    	if ( this.total_coin >=  this.price_per_gumball )
     	{
     		if ( this.num_gumballs > 0 )
     		{
     			this.num_gumballs-- ;
-    			this.total_coin = 0 ;
+    			this.total_coin -= this.price_per_gumball ;
     			System.out.println( "Thanks for your coins.  Gumball Ejected!" ) ;
     		}
     		else

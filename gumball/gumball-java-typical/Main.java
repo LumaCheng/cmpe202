@@ -26,6 +26,5 @@ public class Main {
 		gumballMachine3.turnCrank();
 		gumballMachine3.insertQuarter( 1 );
 		gumballMachine3.turnCrank();
-
 	}
 }
