@@ -3,41 +3,54 @@ public class GumballMachine
 {
 
     private int num_gumballs;
-    private boolean has_quarter;
+    private int total_coin;
+    private boolean must_quarter;
+    private int price_per_gumball;
 
-    public GumballMachine( int size )
+    public GumballMachine( int size , int type )
     {
         // initialise instance variables
         this.num_gumballs = size;
-        this.has_quarter = false;
+        this.total_coin = 0;
+        this.must_quarter = type < 3 ? true : false;
+        this.price_per_gumball = type < 2 ? 25 : 50;
     }
 
-    public void insertQuarter(int coin)
+    public void insertQuarter( int coin )
     {
-        if ( coin == 25 )
-            this.has_quarter = true ;
-        else
-            this.has_quarter = false ;
+        if ( checkCoin(coin, must_quarter) ){
+            this.total_coin += coin;
+            System.out.println( "Coin Accepted! Total coin is:" +  this.total_coin) ;
+        }
+    }
+
+    public boolean checkCoin( int coin, boolean must_quarter )
+    {
+        if (must_quarter && coin != 25){
+            System.out.println( "Coin Unaccepted! Please insert quarter!" ) ;
+            return false;
+        }
+        return true;
     }
 
     public void turnCrank()
     {
-    	if ( this.has_quarter )
+    	if ( this.total_coin ==  this.price_per_gumball )
     	{
     		if ( this.num_gumballs > 0 )
     		{
     			this.num_gumballs-- ;
-    			this.has_quarter = false ;
-    			System.out.println( "Thanks for your quarter.  Gumball Ejected!" ) ;
+    			this.total_coin = 0 ;
+    			System.out.println( "Thanks for your coins.  Gumball Ejected!" ) ;
     		}
     		else
     		{
-    			System.out.println( "No More Gumballs!  Sorry, can't return your quarter." ) ;
+    			System.out.println( "No More Gumballs!  Sorry, can't return your coin." ) ;
     		}
     	}
     	else
     	{
-    		System.out.println( "Please insert a quarter" ) ;
+    		System.out.println( "Please insert enough coin" ) ;
     	}
     }
 }
