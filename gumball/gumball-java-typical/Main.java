@@ -9,22 +9,22 @@ public class Main {
 		GumballMachine gumballMachine2 = new GumballMachine(5, 2);
 		GumballMachine gumballMachine3 = new GumballMachine(5, 3);
 
-		System.out.println("Machine Type1(25, quarter): " + gumballMachine1);
-		gumballMachine1.insertQuarter( 2 );
+		System.out.println(gumballMachine1);
+		gumballMachine1.insertCoin( 2 );
 		gumballMachine1.turnCrank();
-		gumballMachine1.insertQuarter( 25 );
+		gumballMachine1.insertCoin( 25 );
 		gumballMachine1.turnCrank();
 
-		System.out.println("Machine Type2(50, quarter): " + gumballMachine2);
-		gumballMachine2.insertQuarter( 25 );
+		System.out.println(gumballMachine2);
+		gumballMachine2.insertCoin( 25 );
 		gumballMachine2.turnCrank();
-		gumballMachine2.insertQuarter( 25 );
+		gumballMachine2.insertCoin( 25 );
 		gumballMachine2.turnCrank();
 
-		System.out.println("Machine Type3(50, anytype): " + gumballMachine3);
-		gumballMachine3.insertQuarter( 49 );
+		System.out.println(gumballMachine3);
+		gumballMachine3.insertCoin( 49 );
 		gumballMachine3.turnCrank();
-		gumballMachine3.insertQuarter( 1 );
+		gumballMachine3.insertCoin( 1 );
 		gumballMachine3.turnCrank();
 	}
 }
